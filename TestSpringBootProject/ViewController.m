@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "RSAEncryptor.h"
 #import <Foundation/Foundation.h>
+#import "AESCipher.h"
 @interface ViewController ()
 /**
  *
@@ -25,12 +26,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:234/255.f green:234/255.f blue:234/255.f alpha:1.0];
 
-
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self testEncryptAndDecrypt];
-    [self testSignAndVerify];
+//    [self testEncryptAndDecrypt];
+//    [self testSignAndVerify];
+    [self testAES];
+}
+
+- (void)testAES{
+    NSString *cipherText = [AESCipher aesEncryptString:@"王啟龙"];
+    NSLog(@"AES加密后：%@",cipherText);
+    NSString *decryptText = [AESCipher aesDecryptString:cipherText];
+    NSLog(@"AES解密后：%@",decryptText);
 }
 
 

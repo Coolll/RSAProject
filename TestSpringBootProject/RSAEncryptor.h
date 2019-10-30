@@ -26,13 +26,20 @@
 + (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey;
 
 
-//content 原文
-//priKey 私钥字符串
+/**
+ *  签名方法
+ *
+ *  @param content  签名原文
+ *  @param priKey 私钥字符串
+ */
 + (NSString *)sign:(NSString *)content withPriKey:(NSString *)priKey;
 
-//content 原文
-//signature 加密后的签名
-//publicKey 公钥字符串
+/**
+ *  验签方法
+ *。@param content 签名原文
+ *  @param signature 加密后的签名
+ *  @param publicKey 公钥字符串
+ */
 + (BOOL)verify:(NSString *)content signature:(NSString *)signature withPublivKey:(NSString *)publicKey;
 
 
